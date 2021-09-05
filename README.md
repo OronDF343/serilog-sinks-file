@@ -1,13 +1,13 @@
-# Serilog.Sinks.File [![Build status](https://ci.appveyor.com/api/projects/status/hh9gymy0n6tne46j?svg=true)](https://ci.appveyor.com/project/serilog/serilog-sinks-file) [![NuGet Version](http://img.shields.io/nuget/v/Serilog.Sinks.File.svg?style=flat)](https://www.nuget.org/packages/Serilog.Sinks.File/) [![Documentation](https://img.shields.io/badge/docs-wiki-yellow.svg)](https://github.com/serilog/serilog/wiki) [![Join the chat at https://gitter.im/serilog/serilog](https://img.shields.io/gitter/room/serilog/serilog.svg)](https://gitter.im/serilog/serilog)
+# Serilog.Sinks.CustomFile [![Build status](https://ci.appveyor.com/api/projects/status/hh9gymy0n6tne46j?svg=true)](https://ci.appveyor.com/project/serilog/serilog-sinks-file) [![NuGet Version](http://img.shields.io/nuget/v/Serilog.Sinks.CustomFile.svg?style=flat)](https://www.nuget.org/packages/Serilog.Sinks.CustomFile/) [![Documentation](https://img.shields.io/badge/docs-wiki-yellow.svg)](https://github.com/serilog/serilog/wiki) [![Join the chat at https://gitter.im/serilog/serilog](https://img.shields.io/gitter/room/serilog/serilog.svg)](https://gitter.im/serilog/serilog)
 
 Writes [Serilog](https://serilog.net) events to one or more text files.
 
 ### Getting started
 
-Install the [Serilog.Sinks.File](https://www.nuget.org/packages/Serilog.Sinks.File/) package from NuGet:
+Install the [Serilog.Sinks.CustomFile](https://www.nuget.org/packages/Serilog.Sinks.CustomFile/) package from NuGet:
 
 ```powershell
-Install-Package Serilog.Sinks.File
+Install-Package Serilog.Sinks.CustomFile
 ```
 
 To configure the sink in C# code, call `WriteTo.File()` during logger configuration:
@@ -87,7 +87,7 @@ In your application's `App.config` or `Web.config` file, specify the file sink a
 ```xml
 <configuration>
   <appSettings>
-    <add key="serilog:using:File" value="Serilog.Sinks.File" />
+    <add key="serilog:using:File" value="Serilog.Sinks.CustomFile" />
     <add key="serilog:write-to:File.path" value="log.txt" />
 ```
 
@@ -194,9 +194,9 @@ By default, the file sink will flush each event written through it to disk. To i
 The [Serilog.Sinks.Async](https://github.com/serilog/serilog-sinks-async) package can be used to wrap the file sink and perform all disk access on a background worker thread.
 
 ### Extensibility
-[`FileLifecycleHooks`](https://github.com/serilog/serilog-sinks-file/blob/master/src/Serilog.Sinks.File/Sinks/File/FileLifecycleHooks.cs) provide an extensibility point that allows hooking into different parts of the life cycle of a log file.
+[`FileLifecycleHooks`](https://github.com/serilog/serilog-sinks-file/blob/master/src/Serilog.Sinks.CustomFile/Sinks/File/FileLifecycleHooks.cs) provide an extensibility point that allows hooking into different parts of the life cycle of a log file.
 
-You can create a hook by extending from [`FileLifecycleHooks`](https://github.com/serilog/serilog-sinks-file/blob/master/src/Serilog.Sinks.File/Sinks/File/FileLifecycleHooks.cs) and overriding the `OnFileOpened` and/or `OnFileDeleting` methods.
+You can create a hook by extending from [`FileLifecycleHooks`](https://github.com/serilog/serilog-sinks-file/blob/master/src/Serilog.Sinks.CustomFile/Sinks/File/FileLifecycleHooks.cs) and overriding the `OnFileOpened` and/or `OnFileDeleting` methods.
 
 - `OnFileOpened` provides access to the underlying stream that log events are written to, before Serilog begins writing events. You can use this to write your own data to the stream (for example, to write a header row), or to wrap the stream in another stream (for example, to add buffering, compression or encryption)
 

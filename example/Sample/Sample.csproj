@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Serilog.Sinks.File\Serilog.Sinks.File.csproj" />
+    <ProjectReference Include="..\..\src\Serilog.Sinks.CustomFile\Serilog.Sinks.CustomFile.csproj" />
   </ItemGroup>
 
 </Project>
